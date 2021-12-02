@@ -1,6 +1,8 @@
-module.exports = {
+import type { Config } from "@jest/types";
+
+const config: Config.InitialOptions = {
   collectCoverage: true,
-  preset: "ts-jest",
+  preset: "@shelf/jest-dynamodb",
   transform: {
     "^.+\\.(ts|tsx)?$": "ts-jest",
     "^.+\\.(js|jsx)$": "babel-jest",
@@ -8,3 +10,5 @@ module.exports = {
   testRegex: "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
   moduleFileExtensions: ["ts", "js"],
 };
+
+export default config;

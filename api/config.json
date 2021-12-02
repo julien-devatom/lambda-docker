@@ -1,0 +1,10 @@
+{
+  "name": "test_api",
+  "endpoints": [
+    {
+      "route": "/test",
+      "methods": "GET",
+      "handler": "index.apiHandler"
+    }
+  ]
+}
