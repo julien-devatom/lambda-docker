@@ -1,0 +1,32 @@
+name: "CI"
+on:
+  push:
+
+defaults:
+  run:
+    working-directory: ./functions
+jobs:
+  cancel:
+    name: Cancel Previous Runs
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          workflow_id: ci.yml
+          access_token: ${{ github.token }}
+  build:
+    runs-on: ubuntu-latest
+    name: Continuous integration
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+      - run: npm install
+
+      - name: Build step
+        run: npm run build
+
+      - name: Test step
+        run: npm run test
