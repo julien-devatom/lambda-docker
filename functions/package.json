@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "build": "webpack"
+    "test": "npx jest",
+    "build": "npx webpack"
   },
   "keywords": [],
   "author": "",
